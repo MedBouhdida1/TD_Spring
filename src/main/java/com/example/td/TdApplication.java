@@ -57,6 +57,6 @@ public class TdApplication implements ApplicationRunner {
 
         etudiantRepository.saveAll(Arrays.asList(etudiant1,etudiant2,etudiant3,etudiant4));
 
-
+//
     }
 }
