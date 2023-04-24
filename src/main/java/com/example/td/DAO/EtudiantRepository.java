@@ -37,9 +37,9 @@ public interface EtudiantRepository extends JpaRepository<Etudiant, Long> {
    Double findAverageMoyenne();
 
 
-   @RestResource(path="Q6")
-   @Query("SELECT d.nomdepartement, COUNT(d.Etudiants) FROM Departement d GROUP BY d")
-   Object[] nbDept();
+//   @RestResource(path="Q6")
+//   @Query("SELECT d.nomdepartement, COUNT(d.Etudiants) FROM Departement d GROUP BY d")
+//   Object[] nbDept();
 
 
 

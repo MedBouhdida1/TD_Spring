@@ -1,6 +1,7 @@
 package com.example.td.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +22,8 @@ public class Specialite {
 
     @NonNull
     private String libelle;
-
-    @OneToMany(mappedBy = "specialite",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "specialite")
     private List<Etudiant>Etudiants;
 
 

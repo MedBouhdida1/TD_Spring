@@ -1,6 +1,7 @@
 package com.example.td.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.apache.catalina.LifecycleState;
@@ -18,7 +19,7 @@ public class Departement {
     @NonNull
     private String nomdepartement;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "departement",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Etudiant>Etudiants;
 
