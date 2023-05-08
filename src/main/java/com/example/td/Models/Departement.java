@@ -19,7 +19,7 @@ public class Departement {
     @NonNull
     private String nomdepartement;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "departement",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Etudiant>Etudiants;
 

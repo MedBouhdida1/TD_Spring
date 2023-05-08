@@ -11,6 +11,9 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -21,6 +24,7 @@ public class TdApplication implements ApplicationRunner {
 
     @Autowired
     private EtudiantRepository etudiantRepository;
+
     @Autowired
     private SpecialiteRepository specialiteRepository;
     @Autowired
@@ -40,23 +44,27 @@ public class TdApplication implements ApplicationRunner {
 
 
 //        First, save the "Specialite" and "Departement" objects to the database
-        Specialite specialite1 = new Specialite("Genie Logiciel");
-        Specialite specialite2 = new Specialite("Intelligence Artificielle");
-        Specialite specialite3 = new Specialite("Management");
-
-        Departement departement1 = new Departement("Informatique");
-        Departement departement2 = new Departement("Management et Ressources humaines");
-        specialiteRepository.saveAll(Arrays.asList(specialite1,specialite2,specialite3));
-        departementRepository.saveAll(Arrays.asList(departement1,departement2));
-
-        // Now create the "Etudiant" object using the saved "Specialite" and "Departement" objects
-        Etudiant etudiant1 = new Etudiant("Ali", 1, new Date(2014 - 1900, Calendar.OCTOBER,10), specialite1, departement1,8.35f);
-        Etudiant etudiant2 = new Etudiant("Sami", 3, new Date(2012 - 1900,Calendar.OCTOBER,9), specialite1, departement1, 12.12f);
-        Etudiant etudiant3 = new Etudiant("Fethi", 2, new Date(2013 - 1900,Calendar.OCTOBER,9),  specialite2, departement1,14.10f);
-        Etudiant etudiant4 = new Etudiant("Yassine", 1, new Date(2014 - 1900,Calendar.OCTOBER,8),  specialite3, departement2,9.35f);
-
-        etudiantRepository.saveAll(Arrays.asList(etudiant1,etudiant2,etudiant3,etudiant4));
+//        Specialite specialite1 = new Specialite("Genie Logiciel");
+//        Specialite specialite2 = new Specialite("Intelligence Artificielle");
+//        Specialite specialite3 = new Specialite("Management");
+//
+//        Departement departement1 = new Departement("Informatique");
+//        Departement departement2 = new Departement("Management et Ressources humaines");
+//        specialiteRepository.saveAll(Arrays.asList(specialite1,specialite2,specialite3));
+//        departementRepository.saveAll(Arrays.asList(departement1,departement2));
+//
+//        // Now create the "Etudiant" object using the saved "Specialite" and "Departement" objects
+//        Etudiant etudiant1 = new Etudiant("Ali", 1, new Date(2014 - 1900, Calendar.OCTOBER,10), specialite1, departement1,8.35f);
+//        Etudiant etudiant2 = new Etudiant("Sami", 3, new Date(2012 - 1900,Calendar.OCTOBER,9), specialite1, departement1, 12.12f);
+//        Etudiant etudiant3 = new Etudiant("Fethi", 2, new Date(2013 - 1900,Calendar.OCTOBER,9),  specialite2, departement1,14.10f);
+//        Etudiant etudiant4 = new Etudiant("Yassine", 1, new Date(2014 - 1900,Calendar.OCTOBER,8),  specialite3, departement2,9.35f);
+//
+//        etudiantRepository.saveAll(Arrays.asList(etudiant1,etudiant2,etudiant3,etudiant4));
 
 //
+    }
+    @Bean
+    PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 }

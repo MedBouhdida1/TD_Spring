@@ -22,7 +22,7 @@ public class Specialite {
 
     @NonNull
     private String libelle;
-    @JsonIgnore
+
     @OneToMany(mappedBy = "specialite")
     private List<Etudiant>Etudiants;
 
