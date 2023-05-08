@@ -3,18 +3,19 @@ package com.example.td;
 import com.example.td.DAO.DepartementRepository;
 import com.example.td.DAO.EtudiantRepository;
 import com.example.td.DAO.SpecialiteRepository;
-import com.example.td.Models.Departement;
-import com.example.td.Models.Etudiant;
-import com.example.td.Models.Specialite;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
+import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -63,8 +64,9 @@ public class TdApplication implements ApplicationRunner {
 
 //
     }
-    @Bean
-    PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
+
+
+
+
 }
+
